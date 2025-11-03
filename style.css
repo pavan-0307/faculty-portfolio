@@ -1,0 +1,475 @@
+/* --- Global Styles --- */
+:root {
+    --primary-color: #004a99; /* Professional blue */
+    --secondary-color: #007bff; /* Brighter blue for accents */
+    --light-bg: #f8f9fa; /* Lighter page background */
+    --dark-text: #333;
+    --body-text: #555;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    --card-shadow-hover: 0 8px 25px rgba(0, 74, 153, 0.15); /* Shadow on hover */
+    --card-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--light-bg); /* New lighter background */
+    color: var(--body-text);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', serif;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+/* --- New Section Heading Style --- */
+h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    border-bottom: 3px solid #e0e0e0;
+    border-left: 5px solid var(--secondary-color);
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+/* Style for icons inside h2 */
+h2 i {
+    margin-right: 12px;
+    font-size: 1.9rem;
+    vertical-align: middle;
+    color: var(--secondary-color);
+}
+
+/* --- New Card Style with Hover Effect --- */
+.card {
+    background: #ffffff;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    /* This is the new transition for the hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* This is the new hover effect */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* Style for icons inside card h3 */
+.card h3 i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--body-text);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* New underline hover effect for nav */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-text);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- New Hero Section Style --- */
+.hero {
+    /* New subtle gradient background */
+    background: linear-gradient(135deg, #f5faff 0%, #ffffff 100%);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 2;
+}
+
+.hero-text .logo-acharya {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.hero-text h2 {
+    font-size: 1.8rem;
+    color: var(--body-text);
+    border: none;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.hero-text h3 {
+    font-size: 1.3rem;
+    color: var(--body-text);
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+/* New style for the profile photo */
+.hero-image img {
+    max-width: 300px;
+    border-radius: 50%;
+    /* Added a white border and softer, colored shadow */
+    border: 8px solid white;
+    box-shadow: 0 10px 40px rgba(0, 74, 153, 0.2);
+}
+
+/* --- Profile Section --- */
+.profile-container {
+    display: flex;
+    gap: 30px;
+}
+
+.profile-details,
+.profile-memberships {
+    flex: 1;
+}
+
+#profile ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#profile li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+#profile li strong {
+    color: var(--dark-text);
+}
+
+/* --- Styles for About Me Section --- */
+.about-me-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.about-me-card h3:first-child {
+    margin-top: 0;
+}
+
+.about-me-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.about-me-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-me-card ul li {
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+/* Custom icon for appointments and education lists */
+.about-me-card .education-list li::before,
+.about-me-card .appointments-list li::before {
+    content: '\f19d'; /* Font Awesome graduation-cap icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    top: 4px; /* Align icon */
+}
+
+.about-me-card .appointments-list li::before {
+    content: '\f0b1'; /* Font Awesome briefcase icon */
+}
+
+
+/* --- Publications, Conferences, Experience --- */
+.publication-item,
+.conference-item,
+.experience-item {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.publication-item:last-child,
+.conference-item:last-child,
+.experience-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.publication-item h4,
+.conference-item h4,
+.experience-item h4 {
+    font-size: 1.3rem; /* Slightly larger */
+    color: var(--primary-color); /* Darker color */
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.experience-item .dates {
+    font-style: italic;
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* --- New Professional Development List Style --- */
+#development ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+#development li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: flex-start; /* Aligns icon with text */
+}
+
+/* New icon style for the list */
+#development li::before {
+    content: '\f058'; /* Font Awesome check-circle icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--secondary-color);
+    margin-right: 12px;
+    margin-top: 4px; /* Adjust vertical alignment */
+}
+
+/* --- New Styles for Contact Section --- */
+.contact-container {
+    display: flex;
+    gap: 40px;
+}
+
+.contact-info, .contact-socials {
+    flex: 1;
+}
+
+.contact-info h3, .contact-socials h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-info p i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-right: 15px;
+    margin-top: 5px;
+    width: 20px;
+    text-align: center;
+}
+
+.map-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.map-button i {
+    margin-right: 8px;
+}
+
+.map-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    font-size: 2.5rem; /* Larger icons */
+    margin-right: 25px;
+    text-decoration: none;
+    color: var(--dark-text);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon.linkedin:hover {
+    color: #0A66C2; /* LinkedIn blue */
+}
+
+.social-icon.instagram:hover {
+    color: #E4405F; /* Instagram pink */
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--dark-text);
+    color: #f4f4f4;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+/* --- Responsive (Mobile) --- */
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h2 i {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 80px; /* Same height as header */
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        height: calc(100vh - 80px);
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .
